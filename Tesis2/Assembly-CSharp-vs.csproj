@@ -46,9 +46,14 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Apuntar.cs" />
+     <Compile Include="Assets\Scripts\GoogleMap.cs" />
+     <Compile Include="Assets\Scripts\Mouse.cs" />
      <Compile Include="Assets\Scripts\MoverSiguiente.cs" />
      <Compile Include="Assets\Scripts\Paradas.cs" />
-     <Compile Include="Assets\first.cs" />
+     <Compile Include="Assets\Scripts\Seleccionar.cs" />
+     <Compile Include="Assets\Scripts\Street.cs" />
+     <Compile Include="Assets\Scripts\Variables.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />

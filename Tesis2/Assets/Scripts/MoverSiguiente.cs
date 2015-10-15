@@ -29,26 +29,63 @@ public class MoverSiguiente : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		posicionFinalx = siguiente.transform.position.x;
-		posicionFinaly = siguiente.transform.position.y;
-		posicionFinalz = siguiente.transform.position.z;
-
+		//Debug.Log (siguiente);
+		if (siguiente != null) {
+			posicionFinalx = siguiente.transform.position.x;
+			posicionFinaly = siguiente.transform.position.y;
+			posicionFinalz = siguiente.transform.position.z;
+		} else {
+			posicionFinalx = this.transform.position.x;
+			posicionFinaly = this.transform.position.y;
+			posicionFinalz = this.transform.position.z;
+		}
 		posicionInicialx = this.transform.position.x;
 		posicionInicialy = this.transform.position.y;
 		posicionInicialz = this.transform.position.z;
 
-		//moverEnX ();
-		//moverEnZ ();
-
 		var step = velocidad * Time.deltaTime;
 
-		this.transform.position = Vector3.MoveTowards(this.transform.position, siguiente.transform.position, step);
+		if (siguiente != null) {
+			// Move our position a step closer to the target.
+			transform.position = Vector3.MoveTowards (transform.position, siguiente.transform.position, step);
+		}
 
+		//moverEnX ();
+		//moverEnZ ();
+		//transform.position = siguiente.transform.position;
+		//GameObject.Find ("Protagonista").GetComponent<Retorno>().irBase();
+
+
+		/*if (direccion) {
+			if (moverX) {
+				posicionNueva = this.transform.position.x + velocidad * Time.deltaTime;
+				this.transform.position = new Vector3(posicionNueva, this.transform.position.y, this.transform.position.z);
+				
+			} else {
+				posicionNueva = this.transform.position.z + velocidad * Time.deltaTime;
+				this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, posicionNueva);
+			}
+			
+			if(posicionNueva > posicionFinal) {
+				direccion = false;
+			}
+		} else {
+			if (moverX) {
+				posicionNueva = this.transform.position.x - velocidad * Time.deltaTime;
+				this.transform.position = new Vector3(posicionNueva, this.transform.position.y, this.transform.position.z);
+				
+			} else {
+				posicionNueva = this.transform.position.z + velocidad * Time.deltaTime;
+				this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, posicionNueva);
+			}	
+
+		}*/
 	}
 
 	void OnTriggerEnter(Collider coll) {
 		Debug.Log (siguiente.name);
 		siguiente = coll.gameObject.GetComponent<Paradas> ().siguiente;
+		GameObject.Find ("Flecha").GetComponent<Apuntar> ().objetivo=siguiente;
 		Debug.Log (siguiente.name);
 	}
 	
