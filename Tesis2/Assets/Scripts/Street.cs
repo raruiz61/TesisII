@@ -31,7 +31,7 @@ public class Street : MonoBehaviour {
 	{  
 		//for (int i=0; i<10; i++) {
 			//latitude=latitude+0.00011;
-			longitude=longitude-0.0001;
+			//longitude=longitude-0.0001;
 			//heading=heading+1; //Movimiento hotizontal
 			//pitch=pitch+1;//Movimiento vertical
 
