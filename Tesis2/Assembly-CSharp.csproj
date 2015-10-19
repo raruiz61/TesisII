@@ -47,10 +47,12 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Apuntar.cs" />
+     <Compile Include="Assets\Scripts\GamePad.cs" />
      <Compile Include="Assets\Scripts\GoogleMap.cs" />
      <Compile Include="Assets\Scripts\Mouse.cs" />
      <Compile Include="Assets\Scripts\MoverSiguiente.cs" />
      <Compile Include="Assets\Scripts\Paradas.cs" />
+     <Compile Include="Assets\Scripts\Ruta.cs" />
      <Compile Include="Assets\Scripts\Seleccionar.cs" />
      <Compile Include="Assets\Scripts\Street.cs" />
      <Compile Include="Assets\Scripts\Variables.cs" />

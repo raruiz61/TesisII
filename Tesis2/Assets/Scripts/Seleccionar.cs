@@ -21,13 +21,13 @@ public class Seleccionar : MonoBehaviour {
 			if(start==false){
 				if(Input.GetMouseButtonDown (1)){
 					GameObject.Find("Inicio").GetComponent<TextMesh>().text=GameObject.Find(hit.collider.name).GetComponentInChildren<TextMesh>().text;
-					GameObject.Find("Ruta").GetComponent<Variables>().inicioRuta=GameObject.Find(hit.collider.name).GetComponentInChildren<TextMesh>().text;
+					GameObject.Find("Ruta").GetComponent<Variables>().inicioRuta=lugar(GameObject.Find(hit.collider.name).GetComponentInChildren<TextMesh>().text);
 					start=true;
 				}
 			}else{
 				if(Input.GetMouseButtonDown (1)){
 					GameObject.Find("Final").GetComponent<TextMesh>().text=GameObject.Find(hit.collider.name).GetComponentInChildren<TextMesh>().text;
-					GameObject.Find("Ruta").GetComponent<Variables>().finalRuta=GameObject.Find(hit.collider.name).GetComponentInChildren<TextMesh>().text;
+					GameObject.Find("Ruta").GetComponent<Variables>().finalRuta=lugar(GameObject.Find(hit.collider.name).GetComponentInChildren<TextMesh>().text);
 					if(GameObject.Find("Ruta").GetComponent<Variables>().inicioRuta!=GameObject.Find("Ruta").GetComponent<Variables>().finalRuta){
 						end=true;
 					}
@@ -44,7 +44,27 @@ public class Seleccionar : MonoBehaviour {
 	public void iniciar(){
 		Debug.Log (GameObject.Find("Ruta").GetComponent<Variables>().inicioRuta);
 		Debug.Log (GameObject.Find("Ruta").GetComponent<Variables>().finalRuta);
+
 		Application.LoadLevel("Terreno");
 		Object.DontDestroyOnLoad(GameObject.Find("Ruta"));
+	}
+
+	public int lugar(string l){
+		if(l.StartsWith("A)")){
+			return 0;
+		}else{
+			if(l.StartsWith("B)")){
+				return 1;
+			}else{
+				if(l.StartsWith("C)")){
+					return 2;
+				}else{
+					if(l.StartsWith("D)")){
+						return 3;	
+					}
+				}
+			}
+		}
+		return -1;
 	}
 }

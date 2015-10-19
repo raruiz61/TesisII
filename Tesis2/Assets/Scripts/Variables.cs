@@ -2,12 +2,12 @@
 using System.Collections;
 
 public class Variables : MonoBehaviour {
-	public string inicioRuta;
-	public string finalRuta;
+	public int inicioRuta;
+	public int finalRuta;
 	// Use this for initialization
 	void Start () {
-		inicioRuta = null;
-		finalRuta = null;
+		inicioRuta = -1;
+		finalRuta = -1;
 	
 	}
 	

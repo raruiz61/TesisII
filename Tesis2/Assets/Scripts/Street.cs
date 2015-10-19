@@ -4,8 +4,8 @@ using System.Collections;
 public class Street : MonoBehaviour {
 	public double latitude=4.649388599999999;
 	public double longitude=-74.062358;
-	public double width=1024;
-	public double height=512;
+	public double width=2048;
+	public double height=2048;
 	public double sideHeading;
 	public double sidePitch;
 	public string key;

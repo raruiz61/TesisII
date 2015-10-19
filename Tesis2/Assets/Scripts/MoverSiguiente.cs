@@ -17,6 +17,7 @@ public class MoverSiguiente : MonoBehaviour {
 
 	public float posicionFinal;
 	private bool direccion;
+	public bool parar;
 	public float velocidad;
 	private float posicionNueva;
 
@@ -24,6 +25,7 @@ public class MoverSiguiente : MonoBehaviour {
 	void Start () {
 		direccion = true;
 		moverX = false;
+		parar=true;
 	}
 	
 	// Update is called once per frame
@@ -45,7 +47,7 @@ public class MoverSiguiente : MonoBehaviour {
 
 		var step = velocidad * Time.deltaTime;
 
-		if (siguiente != null) {
+		if (siguiente != null&&parar==false) {
 			// Move our position a step closer to the target.
 			transform.position = Vector3.MoveTowards (transform.position, siguiente.transform.position, step);
 		}
