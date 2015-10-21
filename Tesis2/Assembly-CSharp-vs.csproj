@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\Paradas.cs" />
      <Compile Include="Assets\Scripts\Ruta.cs" />
      <Compile Include="Assets\Scripts\Seleccionar.cs" />
+     <Compile Include="Assets\Scripts\Senales.cs" />
      <Compile Include="Assets\Scripts\Street.cs" />
      <Compile Include="Assets\Scripts\Variables.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

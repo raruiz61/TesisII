@@ -38,24 +38,18 @@ public class GamePad : MonoBehaviour {
 			Debug.Log("Fuego "+Input.GetButtonUp("Fire1"));
 			if(GameObject.Find("Player").GetComponent<MoverSiguiente>().parar==true){
 				GameObject.Find("Player").GetComponent<MoverSiguiente>().parar=false;
+				bool s=GameObject.Find("Player").GetComponent<MoverSiguiente>().bus;
+				if(s==true){
+					GameObject.Find("Player").GetComponent<Senales>().activarSenal(2);
+				}else{
+					GameObject.Find("Player").GetComponent<Senales>().activarSenal(1);
+				}
+
 			}else{
 				GameObject.Find("Player").GetComponent<MoverSiguiente>().parar=true;
+				GameObject.Find("Player").GetComponent<Senales>().activarSenal(3);
 			}
 		}
 
-		//movementVector.z = Input.GetAxis("LeftJoystickY") * movementSpeed;
-
-
-
-
-		/*if(characterController.isGrounded)
-		{
-			movementVector.y = 0;
-			
-			if(Input.GetButtonDown("A"))
-			{
-				movementVector.y = jumpPower;
-			}
-		}*/
 	}
 }

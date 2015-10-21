@@ -20,12 +20,14 @@ public class MoverSiguiente : MonoBehaviour {
 	public bool parar;
 	public float velocidad;
 	private float posicionNueva;
+	public bool bus;
 
 	// Use this for initialization
 	void Start () {
+		bus = false;
 		direccion = true;
 		moverX = false;
-		parar=true;
+		parar=false;
 	}
 	
 	// Update is called once per frame
@@ -51,94 +53,17 @@ public class MoverSiguiente : MonoBehaviour {
 			// Move our position a step closer to the target.
 			transform.position = Vector3.MoveTowards (transform.position, siguiente.transform.position, step);
 		}
-
-		//moverEnX ();
-		//moverEnZ ();
-		//transform.position = siguiente.transform.position;
-		//GameObject.Find ("Protagonista").GetComponent<Retorno>().irBase();
-
-
-		/*if (direccion) {
-			if (moverX) {
-				posicionNueva = this.transform.position.x + velocidad * Time.deltaTime;
-				this.transform.position = new Vector3(posicionNueva, this.transform.position.y, this.transform.position.z);
-				
-			} else {
-				posicionNueva = this.transform.position.z + velocidad * Time.deltaTime;
-				this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, posicionNueva);
-			}
-			
-			if(posicionNueva > posicionFinal) {
-				direccion = false;
-			}
-		} else {
-			if (moverX) {
-				posicionNueva = this.transform.position.x - velocidad * Time.deltaTime;
-				this.transform.position = new Vector3(posicionNueva, this.transform.position.y, this.transform.position.z);
-				
-			} else {
-				posicionNueva = this.transform.position.z + velocidad * Time.deltaTime;
-				this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, posicionNueva);
-			}	
-
-		}*/
 	}
 
 	void OnTriggerEnter(Collider coll) {
-		Debug.Log (siguiente.name);
-		siguiente = coll.gameObject.GetComponent<Paradas> ().siguiente;
-		GameObject.Find ("Flecha").GetComponent<Apuntar> ().objetivo=siguiente;
-		Debug.Log (siguiente.name);
-	}
-	
-	public void moverEnX(){
-		float dis = posicionFinalx - posicionInicialx;
-		int dir = -1;
-		if(dis>0){
-			dir=1;
-		}
-
-		dis = Mathf.Abs (dis);
-		Debug.Log (dis+" ** "+posicionInicialx);
-		
-		if(dis>0.01){
-			posicionNueva = this.transform.position.x +dir* velocidad * Time.deltaTime;
-			this.transform.position = new Vector3 (posicionNueva, this.transform.position.y, this.transform.position.z);
-			posicionInicialx=posicionNueva;
-		}
-		
-	}
-
-	public void moverEnY(){
-		float dis = posicionFinaly - posicionInicialy;
-		int dir = -1;
-		if(dis>0){
-			dir=1;
-		}
-		dis = Mathf.Abs (dis);
-		
-		if(dis>0.01){
-			posicionNueva = this.transform.position.y +dir* velocidad * Time.deltaTime;
-			this.transform.position = new Vector3 (this.transform.position.x, posicionNueva, this.transform.position.z);
-			posicionInicialy=posicionNueva;
-		}
-		
-	}
-
-	public void moverEnZ(){
-		float dis = posicionFinalz - posicionInicialz;
-		int dir = -1;
-		if(dis>0){
-			dir=1;
-		}
-
-		dis = Mathf.Abs (dis);
-		
-		if(dis>0.01){
-			posicionNueva = this.transform.position.z +dir* velocidad * Time.deltaTime;
-			this.transform.position = new Vector3 (this.transform.position.x,this.transform.position.y, posicionNueva);
-			posicionInicialz=posicionNueva;
-		}
-		
+		//Debug.Log (coll.name);
+		if (coll.name.StartsWith ("Nodo") == true) {
+			siguiente = coll.gameObject.GetComponent<Paradas> ().siguiente;
+			GameObject.Find ("Flecha").GetComponent<Apuntar> ().objetivo = siguiente;
+			if (coll.gameObject.GetComponent<Paradas>().cubo!= null) {
+				parar = true;
+				GameObject.Find ("Player").GetComponent<Senales> ().activarSenal (3);
+			}
+		} 
 	}
 }

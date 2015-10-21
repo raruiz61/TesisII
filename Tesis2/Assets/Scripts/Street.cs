@@ -11,13 +11,17 @@ public class Street : MonoBehaviour {
 	public string key;
 	public double keyL=100.0;
 	public double turn=0.0;
-
+	public GameObject nodo;
 	// Use this for initialization
 	void Start () {
 
 		//GetStreetviewTexture (0.0, 0.0, 0.0, 0.0);
 		//Latitud 90
 		//Longitud 180
+
+		latitude=nodo.GetComponent<Paradas>().latitud;
+		longitude=nodo.GetComponent<Paradas>().logitud;
+
 		StartCoroutine(GetStreetviewTexture (latitude, longitude, turn, 0.0));
 
 	}
@@ -50,7 +54,7 @@ public class Street : MonoBehaviour {
 				url += "&key=" + key;
 		
 			WWW www = new WWW (url);
-			Debug.Log (url);
+			//Debug.Log (url);
 			yield return www;
 			if (!string.IsNullOrEmpty (www.error))
 				Debug.Log ("Panorama " + name + ": " + www.error);

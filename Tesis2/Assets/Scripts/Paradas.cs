@@ -4,10 +4,16 @@ using System.Collections;
 public class Paradas : MonoBehaviour {
 
 	public GameObject siguiente;
+	public double latitud;
+	public double logitud;
+	public string calle;
+	public string carrera;
+	public GameObject cubo;
+
 
 	// Use this for initialization
 	void Start () {
-	
+
 	}
 	
 	// Update is called once per frame
