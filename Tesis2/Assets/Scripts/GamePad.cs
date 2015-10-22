@@ -50,6 +50,5 @@ public class GamePad : MonoBehaviour {
 				GameObject.Find("Player").GetComponent<Senales>().activarSenal(3);
 			}
 		}
-
 	}
 }

@@ -14,7 +14,7 @@ public class Senales : MonoBehaviour {
 		walk.GetComponent<Image> ().enabled = false;
 		bus.GetComponent<Image> ().enabled = false;
 		alto.GetComponent<Image> ().enabled = true;
-		cambiarUbicacion ();
+		//cambiarUbicacion ();
 
 	}
 	
@@ -24,9 +24,9 @@ public class Senales : MonoBehaviour {
 
 	}
 
-	public void cambiarUbicacion(){
-		calle.GetComponentInChildren<Text>().text=100+"";
-		carrera.GetComponentInChildren<Text>().text=450+"";
+	public void cambiarUbicacion(string ll, string rr){
+		calle.GetComponentInChildren<Text>().text=ll;
+		carrera.GetComponentInChildren<Text>().text=rr;
 	}
 
 	public void activarSenal(int s){

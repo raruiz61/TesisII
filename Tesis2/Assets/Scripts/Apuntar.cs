@@ -13,9 +13,10 @@ public class Apuntar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-		this.transform.LookAt(objetivo.transform.position);
-		this.transform.Rotate (Vector3.right, 90);
+		if(objetivo!=null){
+			this.transform.LookAt(objetivo.transform.position);
+			this.transform.Rotate (Vector3.right, 90);
+		}
 
 	}
 }

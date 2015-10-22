@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class MoverSiguiente : MonoBehaviour {
 
@@ -42,6 +43,8 @@ public class MoverSiguiente : MonoBehaviour {
 			posicionFinalx = this.transform.position.x;
 			posicionFinaly = this.transform.position.y;
 			posicionFinalz = this.transform.position.z;
+			GameObject.Find ("Player").GetComponent<Pruebas>().final = DateTime.Now;
+			GameObject.Find ("Player").GetComponent<Pruebas>().medirTiempo();
 		}
 		posicionInicialx = this.transform.position.x;
 		posicionInicialy = this.transform.position.y;
@@ -63,6 +66,8 @@ public class MoverSiguiente : MonoBehaviour {
 			if (coll.gameObject.GetComponent<Paradas>().cubo!= null) {
 				parar = true;
 				GameObject.Find ("Player").GetComponent<Senales> ().activarSenal (3);
+				GameObject.Find ("Player").GetComponent<Senales>().cambiarUbicacion(coll.gameObject.GetComponent<Paradas>().calle,
+				                                                                    coll.gameObject.GetComponent<Paradas>().carrera);
 			}
 		} 
 	}
