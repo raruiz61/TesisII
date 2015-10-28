@@ -10,6 +10,7 @@ public class Paradas : MonoBehaviour {
 	public string carrera;
 	public GameObject cubo;
 	public bool paradero;
+	public string lugar;
 
 	// Use this for initialization
 	void Start () {

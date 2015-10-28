@@ -11,6 +11,7 @@ public class Senales : MonoBehaviour {
 	public GameObject bus;
 	public GameObject ruta;
 	public GameObject camino;
+	public GameObject lugar;
 
 	// Use this for initialization
 	void Start () {
@@ -19,11 +20,13 @@ public class Senales : MonoBehaviour {
 		alto.GetComponent<Image> ().enabled = true;
 		//cambiarUbicacion ();
 
+
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+		cambiarRuta(GameObject.Find("Rutas").GetComponent<Ruta>().determinarRuta());
 
 	}
 
@@ -38,6 +41,10 @@ public class Senales : MonoBehaviour {
 
 	public void cambiarCamino(string c){
 		camino.GetComponentInChildren<Text>().text=c;
+	}
+
+	public void cambiarLugar(string l){
+		lugar.GetComponentInChildren<Text>().text=l;
 	}
 
 	public void activarSenal(int s){

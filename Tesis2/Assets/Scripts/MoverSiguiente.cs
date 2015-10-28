@@ -66,6 +66,7 @@ public class MoverSiguiente : MonoBehaviour {
 			if (coll.gameObject.GetComponent<Paradas>().cubo!= null) {
 				parar = true;
 				GameObject.Find ("Player").GetComponent<Senales> ().activarSenal (3);
+				GameObject.Find ("Player").GetComponent<Senales> ().cambiarLugar (coll.gameObject.GetComponent<Paradas>().lugar);
 				GameObject.Find ("Player").GetComponent<Senales>().cambiarUbicacion(coll.gameObject.GetComponent<Paradas>().calle,
 				                                                                    coll.gameObject.GetComponent<Paradas>().carrera);
 			}
