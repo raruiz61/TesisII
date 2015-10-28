@@ -9,7 +9,7 @@ public class Paradas : MonoBehaviour {
 	public string calle;
 	public string carrera;
 	public GameObject cubo;
-
+	public bool paradero;
 
 	// Use this for initialization
 	void Start () {

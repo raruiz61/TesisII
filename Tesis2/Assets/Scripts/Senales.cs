@@ -9,6 +9,9 @@ public class Senales : MonoBehaviour {
 	public GameObject walk;
 	public GameObject alto;
 	public GameObject bus;
+	public GameObject ruta;
+	public GameObject camino;
+
 	// Use this for initialization
 	void Start () {
 		walk.GetComponent<Image> ().enabled = false;
@@ -29,6 +32,14 @@ public class Senales : MonoBehaviour {
 		carrera.GetComponentInChildren<Text>().text=rr;
 	}
 
+	public void cambiarRuta(string r){
+		ruta.GetComponentInChildren<Text>().text=r;
+	}
+
+	public void cambiarCamino(string c){
+		camino.GetComponentInChildren<Text>().text=c;
+	}
+
 	public void activarSenal(int s){
 
 		walk.GetComponent<Image> ().enabled = false;
@@ -40,6 +51,5 @@ public class Senales : MonoBehaviour {
 			case 2: bus.GetComponent<Image> ().enabled = true; break;
 			case 3: alto.GetComponent<Image> ().enabled = true; break;
 		}
-
 	}
 }
