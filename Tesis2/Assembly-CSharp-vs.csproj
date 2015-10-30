@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\GamePad.cs" />
      <Compile Include="Assets\Scripts\GoogleMap.cs" />
      <Compile Include="Assets\Scripts\Grabar.cs" />
+     <Compile Include="Assets\Scripts\Mirar.cs" />
      <Compile Include="Assets\Scripts\Mouse.cs" />
      <Compile Include="Assets\Scripts\MoverSiguiente.cs" />
      <Compile Include="Assets\Scripts\Paradas.cs" />

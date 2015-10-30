@@ -12,6 +12,7 @@ public class Street : MonoBehaviour {
 	public double keyL=100.0;
 	public double turn=0.0;
 	public GameObject nodo;
+	public bool lugar = false;
 	// Use this for initialization
 	void Start () {
 

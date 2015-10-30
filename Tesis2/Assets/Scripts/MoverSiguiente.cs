@@ -54,7 +54,7 @@ public class MoverSiguiente : MonoBehaviour {
 
 		if (siguiente != null&&parar==false) {
 			// Move our position a step closer to the target.
-			transform.position = Vector3.MoveTowards (transform.position, siguiente.transform.position, step);
+			//transform.position = Vector3.MoveTowards (transform.position, siguiente.transform.position, step);
 		}
 	}
 
@@ -69,6 +69,9 @@ public class MoverSiguiente : MonoBehaviour {
 				GameObject.Find ("Player").GetComponent<Senales> ().cambiarLugar (coll.gameObject.GetComponent<Paradas>().lugar);
 				GameObject.Find ("Player").GetComponent<Senales>().cambiarUbicacion(coll.gameObject.GetComponent<Paradas>().calle,
 				                                                                    coll.gameObject.GetComponent<Paradas>().carrera);
+				if(coll.gameObject.GetComponent<Paradas>().paradero==true){
+					bus=!bus;
+				}
 			}
 		} 
 	}

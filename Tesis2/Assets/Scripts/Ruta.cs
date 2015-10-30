@@ -26,7 +26,7 @@ public class Ruta : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//rutas=new GameObject[4][4];
-		inicio=0;
+		inicio=4;
 		final=1;
 
 		posicionar();
@@ -35,8 +35,8 @@ public class Ruta : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		posicionar();
-		rutaName=determinarRuta();
+		//posicionar();
+		//rutaName=determinarRuta();
 	}
 
 	public void posicionar(){
@@ -54,11 +54,20 @@ public class Ruta : MonoBehaviour {
 	}
 
 	public string determinarRuta(){
-		switch(inicio){
+		/*switch(inicio){
 			case 1: return ruta1.name; break;
 			case 2: return ruta5.name; break;
 			case 3: return ruta6.name; break;
 			case 4: return ruta10.name; break;
+		}*/
+		if (inicio == 4) {
+			rutaName=ruta7.name;
+			ruta1.SetActive(false);
+			return ruta7.name;
+		} else {
+			rutaName=ruta1.name;
+			ruta7.SetActive(false);
+			return ruta1.name;
 		}
 		return "";
 	}
