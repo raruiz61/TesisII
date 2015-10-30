@@ -20,7 +20,7 @@ public class Senales : MonoBehaviour {
 		alto.GetComponent<Image> ().enabled = true;
 		//cambiarUbicacion ();
 
-
+		cambiarRuta("Ruta: 56A");
 
 	}
 	
