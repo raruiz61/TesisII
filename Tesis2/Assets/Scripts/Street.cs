@@ -59,8 +59,8 @@ public class Street : MonoBehaviour {
 			yield return www;
 			if (!string.IsNullOrEmpty (www.error))
 				Debug.Log ("Panorama " + name + ": " + www.error);
-			else
-				print ("Panorama " + name + " loaded url " + url);
+			//else
+			//	print ("Panorama " + name + " loaded url " + url);
 		
 			//renderer.material.mainTexture = www.texture;
 			GetComponent<Renderer> ().material.mainTexture = www.texture;

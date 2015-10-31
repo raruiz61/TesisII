@@ -4,6 +4,7 @@ using System.Collections;
 public class Mouse : MonoBehaviour {
 
 	public int zoom=13;
+	public GameObject ruta;
 
 	// Use this for initialization
 	void Start () {
@@ -58,7 +59,16 @@ public class Mouse : MonoBehaviour {
 		}*/
 
 		if (Input.GetButtonUp ("Fire1") == true) {
+			GameObject.Find("RutaO").GetComponent<Variables>().inicioRuta=1;
 			Application.LoadLevel("Terreno");
+			Object.DontDestroyOnLoad(GameObject.Find("RutaO"));
+
+		}
+
+		if (Input.GetButtonUp ("Fire2") == true) {
+			GameObject.Find("RutaO").GetComponent<Variables>().inicioRuta=4;
+			Application.LoadLevel("Terreno");
+			Object.DontDestroyOnLoad(GameObject.Find("RutaO"));
 		}
 
 
