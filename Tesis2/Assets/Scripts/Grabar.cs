@@ -6,7 +6,7 @@ public class Grabar : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		grabar();
+		//grabar();
 	}
 	
 	// Update is called once per frame
@@ -21,15 +21,27 @@ public class Grabar : MonoBehaviour {
 	public void grabar(){
 		// WriteAllLines creates a file, writes a collection of strings to the file,
 		// and then closes the file.  You do NOT need to call Flush() or Close().
-		System.IO.File.WriteAllLines(@"C:\Users\LaptopRafael\Documents\TesisII\Tesis2\Assets\Pruebas\WriteLines.txt", lines);
+		string[] texto = new string[3];
+
+		texto[0] = "---------------------------------------------------------------------------------------------";
+
+		texto[1] = GameObject.Find ("Player").GetComponent<Pruebas> ().recolectar ();
+
+		texto[2]  = "---------------------------------------------------------------------------------------------";
+
+			
+
+		//System.IO.File.WriteAllLines(@"C:\Users\Imagine\Desktop\WriteLines.txt", texto);
 
 		// Example #4: Append new text to an existing file.
 		// The using statement automatically flushes AND CLOSES the stream and calls 
 		// IDisposable.Dispose on the stream object.
 		using (System.IO.StreamWriter file = 
-		       new System.IO.StreamWriter(@"C:\Users\LaptopRafael\Documents\TesisII\Tesis2\Assets\Pruebas\WriteLines.txt", true))
+		       new System.IO.StreamWriter(@"pruebas.txt", true))
 		{
-			file.WriteLine("Fourth line");
+			for(int i=0;i<3;i++){
+				file.WriteLine(texto[i]);
+			}
 		}
 	}
 }

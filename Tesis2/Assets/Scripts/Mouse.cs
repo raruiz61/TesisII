@@ -43,7 +43,7 @@ public class Mouse : MonoBehaviour {
 		if (Input.GetMouseButtonDown(2))
 			Debug.Log("Pressed middle click.");
 		*/
-		if (Input.GetAxis ("Mouse ScrollWheel") < 0) { // back
+		/*if (Input.GetAxis ("Mouse ScrollWheel") < 0) { // back
 			//Camera.main.orthographicSize = Mathf.Max(Camera.main.orthographicSize-1, 1);
 			zoom--;
 			GameObject.Find ("Plane").GetComponent<GoogleMap> ().Refresh ();
@@ -55,6 +55,10 @@ public class Mouse : MonoBehaviour {
 						
 			GameObject.Find ("Plane").GetComponent<Street> ();
 			//Debug.Log (Input.GetAxis("Mouse ScrollWheel"));
+		}*/
+
+		if (Input.GetButtonUp ("Fire1") == true) {
+			Application.LoadLevel("Terreno");
 		}
 
 

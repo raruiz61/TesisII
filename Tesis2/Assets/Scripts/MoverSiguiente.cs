@@ -54,7 +54,11 @@ public class MoverSiguiente : MonoBehaviour {
 
 		if (siguiente != null&&parar==false) {
 			// Move our position a step closer to the target.
-			//transform.position = Vector3.MoveTowards (transform.position, siguiente.transform.position, step);
+			transform.position = Vector3.MoveTowards (transform.position, siguiente.transform.position, step);
+		}
+
+		if(siguiente==null){
+			GameObject.Find ("Player").GetComponent<Grabar> ().grabar();
 		}
 	}
 

@@ -21,26 +21,29 @@ public class Mirar : MonoBehaviour {
 		RaycastHit hit;
 
 		if (Physics.Raycast(ray, out hit, 100)) {
-			if(!hit.collider.name.Equals(objeto)&&hit.collider.GetComponent<Street>().lugar==true){
-				if(iniciar==true){
-					inicio = DateTime.Now;
-					objeto=hit.collider.name;
-					//Debug.Log(objeto+" ==");
-					iniciar=false;
-					//Debug.Log(DateTime.Now.ToString()+" ##");
+			//Debug.Log(hit.collider.name);
+			if(hit.collider.GetComponent<Street>()!=null){
+				if(!hit.collider.name.Equals(objeto)&&hit.collider.GetComponent<Street>().lugar==true){
+					if(iniciar==true){
+						inicio = DateTime.Now;
+						objeto=hit.collider.name;
+						//Debug.Log(objeto+" ==");
+						iniciar=false;
+						//Debug.Log(DateTime.Now.ToString()+" ##");
+					}
+				}else{
+					final = DateTime.Now;
+					TimeSpan transcurrido = final.Subtract(inicio);
+					//Debug.Log(transcurrido.Seconds);
+					if(transcurrido.Seconds>6){
+						vio++;
+						//Debug.Log(hit.collider.name);
+						iniciar =false;
+						inicio = DateTime.Now;
+					}
 				}
-			}else{
-				final = DateTime.Now;
-				TimeSpan transcurrido = final.Subtract(inicio);
-				//Debug.Log(transcurrido.Seconds);
-				if(transcurrido.Seconds>6){
-					vio++;
-					//Debug.Log(hit.collider.name);
-					iniciar =false;
-					inicio = DateTime.Now;
-				}
+				//Debug.DrawLine(ray.origin, hit.point);	
 			}
-			//Debug.DrawLine(ray.origin, hit.point);	
 		}
 	}
 }
