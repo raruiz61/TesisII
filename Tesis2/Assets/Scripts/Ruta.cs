@@ -26,8 +26,8 @@ public class Ruta : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//rutas=new GameObject[4][4];
-		inicio=4;
-		inicio=GameObject.Find("RutaO").GetComponent<Variables>().inicioRuta;
+		//inicio=4;
+		//inicio=GameObject.Find("RutaO").GetComponent<Variables>().inicioRuta;
 		final=1;
 
 		posicionar();

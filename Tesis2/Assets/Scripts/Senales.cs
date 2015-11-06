@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System;
 
 public class Senales : MonoBehaviour {
 
@@ -31,8 +32,14 @@ public class Senales : MonoBehaviour {
 	}
 
 	public void cambiarUbicacion(string ll, string rr){
-		calle.GetComponentInChildren<Text>().text=ll;
-		carrera.GetComponentInChildren<Text>().text=rr;
+		string[] separador ={" "," "};
+		string[] words = ll.Split(separador, StringSplitOptions.RemoveEmptyEntries);
+		//Debug.Log (words [0] + "-" + words [1]);
+		string[] words2 = rr.Split(separador, StringSplitOptions.RemoveEmptyEntries);
+		if(words[1]!=null&&words2[1]!=null){
+			calle.GetComponentInChildren<Text>().text="Calle "+words [1];
+			carrera.GetComponentInChildren<Text>().text="Carrera " +words2 [1];
+		}
 	}
 
 	public void cambiarRuta(string r){

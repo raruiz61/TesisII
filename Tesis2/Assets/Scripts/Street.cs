@@ -13,6 +13,7 @@ public class Street : MonoBehaviour {
 	public double turn=0.0;
 	public GameObject nodo;
 	public bool lugar = false;
+	public bool visto=false;
 	// Use this for initialization
 	void Start () {
 

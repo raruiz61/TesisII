@@ -17,7 +17,6 @@ public class MoverSiguiente : MonoBehaviour {
 	public float posicionFinalz;
 
 	public float posicionFinal;
-	private bool direccion;
 	public bool parar;
 	public float velocidad;
 	private float posicionNueva;
@@ -26,7 +25,6 @@ public class MoverSiguiente : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		bus = false;
-		direccion = true;
 		moverX = false;
 		parar=false;
 	}
@@ -70,13 +68,22 @@ public class MoverSiguiente : MonoBehaviour {
 			if (coll.gameObject.GetComponent<Paradas>().cubo!= null) {
 				parar = true;
 				GameObject.Find ("Player").GetComponent<Senales> ().activarSenal (3);
-				GameObject.Find ("Player").GetComponent<Senales> ().cambiarLugar (coll.gameObject.GetComponent<Paradas>().lugar);
 				GameObject.Find ("Player").GetComponent<Senales>().cambiarUbicacion(coll.gameObject.GetComponent<Paradas>().calle,
 				                                                                    coll.gameObject.GetComponent<Paradas>().carrera);
+				//Debug.Log ("PAradero: "+coll.gameObject.GetComponent<Paradas>().paradero);
+				//Debug.Log ("Bus1: "+bus);
+				//bus=true;
 				if(coll.gameObject.GetComponent<Paradas>().paradero==true){
-					bus=!bus;
+					//Debug.Log ("Bus2: "+bus);
+					if(bus==true){
+						bus=false;
+					}else{
+						bus=true;
+					}
+					//Debug.Log ("Bus3: "+bus);
 				}
 			}
+			coll.gameObject.GetComponent<BoxCollider>().enabled=false;
 		} 
 	}
 }

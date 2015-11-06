@@ -10,7 +10,7 @@ public class Pruebas : MonoBehaviour {
 	public int participante;
 	public string  ruta;
 	public int numLugares;
-	public int tiempo;
+	public string tiempo;
 
 
 	// Use this for initialization
@@ -29,7 +29,7 @@ public class Pruebas : MonoBehaviour {
 
 		Debug.Log (transcurrido);
 
-		tiempo = transcurrido.Seconds;
+		tiempo = transcurrido.ToString();
 	}
 
 	public string recolectar(){

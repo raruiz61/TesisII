@@ -22,8 +22,11 @@ public class Mirar : MonoBehaviour {
 
 		if (Physics.Raycast(ray, out hit, 100)) {
 			//Debug.Log(hit.collider.name);
+			//Debug.Log(hit.collider.name+" --");
 			if(hit.collider.GetComponent<Street>()!=null){
-				if(!hit.collider.name.Equals(objeto)&&hit.collider.GetComponent<Street>().lugar==true){
+				Debug.Log(hit.collider.name+" ++");
+				if(hit.collider.name.Equals(objeto)&&hit.collider.GetComponent<Street>().lugar==true&&hit.collider.GetComponent<Street>().visto==false){
+					//Debug.Log(hit.collider.name+" ==");
 					if(iniciar==true){
 						inicio = DateTime.Now;
 						objeto=hit.collider.name;
@@ -31,16 +34,28 @@ public class Mirar : MonoBehaviour {
 						iniciar=false;
 						//Debug.Log(DateTime.Now.ToString()+" ##");
 					}
-				}else{
 					final = DateTime.Now;
 					TimeSpan transcurrido = final.Subtract(inicio);
 					//Debug.Log(transcurrido.Seconds);
-					if(transcurrido.Seconds>6){
+					Debug.Log(transcurrido.Seconds);
+					//Debug.Log(final.ToString());
+					if(transcurrido.Seconds>3){
 						vio++;
 						//Debug.Log(hit.collider.name);
-						iniciar =false;
-						inicio = DateTime.Now;
+						iniciar =true;
+						transcurrido = inicio.Subtract(inicio);
+						hit.collider.GetComponent<Street>().visto=true;
+						Debug.Log(transcurrido.ToString());
 					}
+				}else{
+					objeto=hit.collider.name;
+
+				}
+
+				if(hit.collider.GetComponent<Street>().lugar==true){
+					GameObject.Find ("Player").GetComponent<Senales> ().cambiarLugar (hit.collider.GetComponent<Street>().nodo.GetComponent<Paradas>().lugar);
+				}else{
+					GameObject.Find ("Player").GetComponent<Senales> ().cambiarLugar ("");
 				}
 				//Debug.DrawLine(ray.origin, hit.point);	
 			}
